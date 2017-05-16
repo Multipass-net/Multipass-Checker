@@ -2,15 +2,15 @@
 function curl_api($method, $protocol)
 {
   $curl = curl_init();
-  if ($method == 'get') {
+  if ($method === 'get') {
     curl_setopt_array($curl, [
-      CURLOPT_URL => $protocol . '://api.sqweb.com/ping',
+      CURLOPT_URL => $protocol . '://api.multipass.net/ping',
       CURLOPT_RETURNTRANSFER => 1,
       CURLOPT_VERBOSE => 1
     ]);
-  } elseif ($method == 'post') {
+  } elseif ($method === 'post') {
     curl_setopt_array($curl, [
-      CURLOPT_URL => $protocol . '://api.sqweb.com/ping',
+      CURLOPT_URL => $protocol . '://api.multipass.net/ping',
       CURLOPT_RETURNTRANSFER => 1,
       CURLOPT_POST  => 1,
       CURLOPT_VERBOSE => 1
@@ -23,7 +23,7 @@ function curl_api($method, $protocol)
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>SQweb checker</title>
+    <title>SQweb - Connection Checker</title>
   </head>
   <body>
     GET HTTP: <br>
@@ -34,7 +34,7 @@ function curl_api($method, $protocol)
       $response = curl_exec($curl);
       rewind($stderr);
       $stderrLog = stream_get_contents($stderr);
-      if ($response == 1) {
+      if ($response === 1) {
     ?>
     <br> Connection succeeded <br> <?php echo $stderrLog ?>
     <?php } else { ?>
@@ -50,7 +50,7 @@ function curl_api($method, $protocol)
       $response = curl_exec($curl);
       rewind($stderr);
       $stderrLog = stream_get_contents($stderr);
-      if ($response == 1) {
+      if ($response === 1) {
     ?>
     <br> Connection succeeded <br><?php echo $stderrLog ?>
     <?php } else { ?>
@@ -66,7 +66,7 @@ function curl_api($method, $protocol)
       $response = curl_exec($curl);
       rewind($stderr);
       $stderrLog = stream_get_contents($stderr);
-      if ($response == 1) {
+      if ($response === 1) {
     ?>
     <br> Connection succeeded <br><?php echo $stderrLog ?>
     <?php } else { ?>
@@ -82,7 +82,7 @@ function curl_api($method, $protocol)
       $response = curl_exec($curl);
       rewind($stderr);
       $stderrLog = stream_get_contents($stderr);
-      if ($response == 1) {
+      if ($response === 1) {
     ?>
     <br> Connection succeeded <br><?php echo $stderrLog ?>
     <?php } else { ?>
